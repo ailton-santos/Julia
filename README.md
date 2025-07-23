@@ -12,3 +12,8 @@ We begin with:
 - Dictionaries, are fundamental for organizing data collections efficiently.
 
 While not strictly "Object-Oriented Programming" in the classical sense, Julia achieves many of the benefits through multiple dispatch and composite types. The ability to manage and use Packages (Julia's equivalent of modules/libraries) is a key differentiator, as it allows you to leverage a vast ecosystem of high-performance functionalities developed by others. 
+
+<p align="center">
+<a href="https://linkedin.com/in/ailtonjsantos" target="blank"><img align="center" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="ailtonjsantos" height="40" width="40" /></a>
+</p>
+
