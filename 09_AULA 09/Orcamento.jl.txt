@@ -1,0 +1,76 @@
+# --- Função para limpar a tela do console (opcional, para melhor visualização) ---
+function clear_screen()
+    # Compatível com sistemas baseados em Unix (Linux/macOS) e Windows
+    if Sys.iswindows()
+        run(`cmd /c cls`)
+    else
+        run(`clear`)
+    end
+end
+
+# --- Início do Programa Principal ---
+clear_screen() # Limpa a tela ao iniciar
+
+println("--- Calculadora de Orçamento Simplificada para Reforma ---")
+println("Vamos estimar os custos para sua pequena reforma.")
+
+# --- Variáveis para armazenar os custos ---
+custo_mao_de_obra = 0.0
+custo_materiais = 0.0
+custo_outros = 0.0
+margem_imprevistos_percentual = 0.0
+
+# --- Entrada de dados para Mão de Obra ---
+print("\nDigite o custo estimado da Mão de Obra (em R$): ")
+try
+    global custo_mao_de_obra = parse(Float64, readline())
+catch
+    println("Valor inválido para Mão de Obra. Usando 0.0.")
+end
+
+# --- Entrada de dados para Materiais ---
+print("Digite o custo estimado dos Materiais (em R$): ")
+try
+    global custo_materiais = parse(Float64, readline())
+catch
+    println("Valor inválido para Materiais. Usando 0.0.")
+end
+
+# --- Entrada de dados para Outros Custos ---
+print("Digite outros custos estimados (permits, transporte, etc., em R$): ")
+try
+    global custo_outros = parse(Float64, readline())
+catch
+    println("Valor inválido para Outros Custos. Usando 0.0.")
+end
+
+# --- Entrada de dados para Margem de Imprevistos ---
+print("Digite a porcentagem para Margem de Imprevistos (ex: 10 para 10%): ")
+try
+    global margem_imprevistos_percentual = parse(Float64, readline())
+    if margem_imprevistos_percentual < 0
+        println("Porcentagem negativa inválida. Usando 0%.")
+        margem_imprevistos_percentual = 0.0
+    end
+catch
+    println("Valor inválido para Margem de Imprevistos. Usando 0%.")
+end
+
+# --- Cálculos ---
+custo_total_base = custo_mao_de_obra + custo_materiais + custo_outros
+valor_margem_imprevistos = custo_total_base * (margem_imprevistos_percentual / 100)
+custo_final_estimado = custo_total_base + valor_margem_imprevistos
+
+# --- Exibição dos Resultados ---
+clear_screen() # Limpa a tela antes de mostrar o resumo
+println("--- Resumo do Orçamento da Reforma ---")
+println("\nCustos Detalhados:")
+println("Mão de Obra:          R$", lpad(round(custo_mao_de_obra, digits=2), 10))
+println("Materiais:            R$", lpad(round(custo_materiais, digits=2), 10))
+println("Outros Custos:        R$", lpad(round(custo_outros, digits=2), 10))
+println("-"^35) # Linha divisória
+println("Custo Total Base:     R$", lpad(round(custo_total_base, digits=2), 10))
+println("Margem de Imprevistos (", margem_imprevistos_percentual, "%): R$", lpad(round(valor_margem_imprevistos, digits=2), 10))
+println("-"^35) # Linha divisória
+println("Custo Final Estimado: R$", lpad(round(custo_final_estimado, digits=2), 10))
+println("\nLembre-se: Este é um orçamento estimado. Sempre considere variações.")
