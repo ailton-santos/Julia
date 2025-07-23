@@ -14,6 +14,6 @@ We begin with:
 While not strictly "Object-Oriented Programming" in the classical sense, Julia achieves many of the benefits through multiple dispatch and composite types. The ability to manage and use Packages (Julia's equivalent of modules/libraries) is a key differentiator, as it allows you to leverage a vast ecosystem of high-performance functionalities developed by others. 
 
 <p align="center">
-<a href="https://julialang.org" target="blank"><img align="center" src="https://github.com/ailton-santos/Julia/blob/main/julia-vscode.png" alt="julialang" height="80" width="100" /></a>
+<a href="https://julialang.org" target="blank"><img align="center" src="https://github.com/ailton-santos/Julia/blob/main/julia-vscode.png" alt="julialang" height="300" width="500" /></a>
 </p>
 
